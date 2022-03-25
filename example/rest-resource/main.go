@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/ngamux/generoute"
@@ -33,5 +34,5 @@ func main() {
 	mux := ngamux.New()
 
 	generoute.RestResource(mux, "/users", &UserController{})
-	http.ListenAndServe(":8080", mux)
+	log.Fatal(http.ListenAndServe(":8080", mux))
 }
